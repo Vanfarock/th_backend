@@ -13,7 +13,7 @@ fn create(person: Json<Person>) -> Json<Person> {
 
 #[get("/")]
 fn read() -> &'static str {
-    "Hello world!"
+    "Hello world"
 }
 
 pub fn run_server() {
