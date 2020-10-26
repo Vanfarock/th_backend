@@ -5,4 +5,6 @@
 
 pub mod server;
 pub mod models;
+pub mod controllers;
 pub mod db_connection;
+pub mod routes;

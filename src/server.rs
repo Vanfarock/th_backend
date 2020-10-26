@@ -1,4 +1,5 @@
 use rocket_contrib::json::Json;
+use crate::routes;
 
 #[derive(Serialize, Deserialize)]
 struct Person {
@@ -16,9 +17,8 @@ fn read() -> &'static str {
     "Hello world"
 }
 
-pub fn run_server() {
+pub fn run() {
     rocket::ignite()
-        .mount("/", routes![create])
-        .mount("/", routes![read])
+        .mount("/", routes::get_routes())
         .launch();
 }

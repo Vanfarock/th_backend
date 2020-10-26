@@ -1,10 +1,8 @@
-use th_backend::models::{ competition::Competition, base_model::Model };
 use std::error::Error;
-use async_std;
+use th_backend::server;
 
-#[async_std::main]
-async fn main() -> Result<(), Box<dyn Error>> {
-    let _b = Competition::find_many(None, None).await;
+fn main() -> Result<(), Box<dyn Error>> {
+    server::run();    
 
     Ok(())
 }
