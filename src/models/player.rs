@@ -1,16 +1,14 @@
 use super::prelude::*;
-use chrono::{ DateTime, Utc };
 
 #[derive(Serialize, Deserialize, Debug)]
-pub struct Competition {
+pub struct Player<'a> {
    #[serde(rename = "_id", skip_serializing_if = "Option::is_none")]
    id: Option<bson::oid::ObjectId>,
-   timestamp_start: DateTime<Utc>,
-   timestamp_end: DateTime<Utc>,
+   name: &'a str
 }
 
-impl Model for Competition {
+impl <'a>Model for Player<'a> {
    fn get_collection(db: &Database) -> Collection {
-       db.collection("competition")
+       db.collection("player")
    }
 }
